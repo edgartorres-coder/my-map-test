@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="map" style="width: 100%; height: 500px; border: 2px solid blue;"></div>
+
+    <!-- Move these to the bottom -->
+    <link href="https://mapbox.com" rel="stylesheet">
+    <script src="https://mapbox.com"></script>
+
+    <script>
+        // Use a "Window Load" check to make sure the Mapbox library is ready
+        window.onload = function() {
+            if (typeof mapboxgl !== 'undefined') {
+                mapboxgl.accessToken = 'pk.eyJ1IjoiZXRvcnJlczkxMSIsImEiOiJjbW5ldnI5c2UwMWRsMnJvYmNxdWp0MmY0In0.H21uYfRmupe6ZPKkTEXIxA';
+                new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v12',
+                    center: [-74.5, 40],
+                    zoom: 9
+                });
+            } else {
+                alert("Mapbox library failed to load. Check your internet connection!");
+            }
+        };
+    </script>
+</body>
+</html>
